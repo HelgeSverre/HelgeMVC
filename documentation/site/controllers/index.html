@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+        <title>Controllers - HelgeMVC</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">HelgeMVC</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../download">Download</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../misc">Misc</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../configuration">Configuration</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href=".">Controllers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../models">Models</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../views">Views</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../database">Database</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../forms">Forms</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../helpers">Helpers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../sessions">Sessions</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../configuration">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../models">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#controllers">Controllers</a></li>
+        
+            <li><a href="#what-is-a-controller">What is a controller?</a></li>
+        
+            <li><a href="#how-do-i-make-a-controller">How do i make a controller?</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="controllers">Controllers</h1>
+<h2 id="what-is-a-controller">What is a controller?</h2>
+<p>A controller is a class that matches the URL frament a user is trying
+to access, so if a user is trying to access this page on your website:</p>
+<pre class="prettyprint well"><code>http://helgesverre.com/about
+</code></pre>
+
+<p>HelgeMVC will try to look for a file called "About.php" that contains a
+class called, you guessed it: <strong>About</strong>.</p>
+<p>This happens automatically within HelgeMVC and requires nothing more than
+for you to create a controller class with whatever name you want the page to be named.</p>
+<h3 id="actionsfunctions">Actions/Functions</h3>
+<p>Within your controller class, you've got functions, which sometimes are called "actions",
+although HelgeMVC have no official name for them other than "a controller function".</p>
+<p>If a user were to go to this url:</p>
+<pre class="prettyprint well"><code>http://helgesverre.com/hello/world
+</code></pre>
+
+<p>We learned from before that this would run the <strong>hello</strong> controller, well action's is
+what people commonly call functions within that controller in this case, the <strong>world</strong>
+part of the url above is the action, which would map to the <code>World()</code> function
+within the Hello class.</p>
+<p>Here is an illustration to make it easier to visualize what I am trying to say.</p>
+<p><img alt="alt text" src="../img/mvc-controller-action.png" title="MVC Controller Actions" /></p>
+<h2 id="how-do-i-make-a-controller">How do i make a controller?</h2>
+<p>Creating a controller within HelgeMVC is fairly easy, various other frameworks names
+files and classes slightly differently, but in HelgeMVC, you don't need to remember
+any fancy names.</p>
+<p>If you want to create a controller, you simple name your controller
+the same as the url you wish it to map to (http://helgesverre.com/<strong>hello</strong>) and extend the main Controller class.</p>
+<p>Here is a simple example that would greet the user visiting http://helgesverre.com/<strong>hello</strong> with a nice message.</p>
+<pre class="prettyprint well"><code>// name our class Hello and extend the base controller class: &quot;Controller&quot;.
+class Hello extends Controller {
+
+    // create a function to handle the &quot;default&quot; route.
+    public function Index() {
+        // echo out a welcome message.
+        echo &quot;Welcome to my website!&quot;;
+    }
+}
+</code></pre>
+
+<p>Now, you would not usually output anything inside of your controller,
+that is the job of the <a href="../views">view</a>, but for this simple example, it's ok.</p>
+<p>With that said, let's load a view!</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/prettify-1.0.min.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

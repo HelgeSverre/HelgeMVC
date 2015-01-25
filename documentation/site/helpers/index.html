@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+        <title>Helpers - HelgeMVC</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">HelgeMVC</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../download">Download</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../misc">Misc</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../configuration">Configuration</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../controllers">Controllers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../models">Models</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../views">Views</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../database">Database</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../forms">Forms</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href=".">Helpers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../sessions">Sessions</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../forms">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../sessions">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#helpers">Helpers</a></li>
+        
+            <li><a href="#complete-list-of-helpers">Complete list of helpers</a></li>
+        
+            <li><a href="#helperurl">Helper::URL()</a></li>
+        
+            <li><a href="#helperloadscript">Helper::LoadScript()</a></li>
+        
+            <li><a href="#helperanchor">Helper::Anchor()</a></li>
+        
+            <li><a href="#helperredirect">Helper::Redirect()</a></li>
+        
+            <li><a href="#helperloadstylesheet">Helper::LoadStylesheet()</a></li>
+        
+            <li><a href="#helperloadpartial">Helper::LoadPartial()</a></li>
+        
+            <li><a href="#helpertitle">Helper::Title()</a></li>
+        
+            <li><a href="#helperissecure">Helper::isSecure()</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="helpers">Helpers</h1>
+<p>In HelgeMVC there are a few static functions inside of a class called Helper, these functions are meant to be used 
+for convenience and readability in your entire application, from the controller, model and even in the view.</p>
+<h2 id="complete-list-of-helpers">Complete list of helpers</h2>
+<p>Below are a complete list of all he helpers included in HelgeMVC, I will explain all of them in detail.</p>
+<ul>
+<li><code>Helper::URL();</code></li>
+<li><code>Helper::LoadScript();</code></li>
+<li><code>Helper::Anchor();</code></li>
+<li><code>Helper::Redirect();</code></li>
+<li><code>Helper::LoadStylesheet();</code></li>
+<li><code>Helper::LoadPartial();</code></li>
+<li><code>Helper::Title();</code></li>
+<li><code>Helper::isSecure();</code></li>
+</ul>
+<h2 id="helperurl">Helper::URL()</h2>
+<h4 id="returns-the-base-url-of-your-website">Returns the base URL of your website</h4>
+<p>The <code>URL()</code> helper will simply return the base url of your website, this function is also SSL aware and will return the HTTPS version of the domain if the script is being run under HTTPS.</p>
+<p>If I were to run that script on this page right now it would return <strong>https://helgesverre.com/</strong>, this function does <strong>NOT</strong> include the base path of the application itself if it is inside of a sub directory. </p>
+<h4 id="example">Example:</h4>
+<pre class="prettyprint well"><code class="php">echo Helper::URL();
+</code></pre>
+
+<h4 id="output">Output:</h4>
+<pre class="prettyprint well"><code>https://helgesverre.com/
+</code></pre>
+
+<h2 id="helperloadscript">Helper::LoadScript()</h2>
+<h4 id="includes-a-javascript-file-via-the-script-tags">Includes a javascript file via the script tags.</h4>
+<p>The <code>LoadScript()</code> function takes 1 parameter, which is a filename to a file inside of the javascript directory of your application, by default this is inside of <strong>public/js/</strong>, but this can be changed in the <a href="../configuration">Configuration</a>.</p>
+<h4 id="example_1">Example:</h4>
+<pre class="prettyprint well"><code class="php">Helper::LoadScript(&quot;script.js&quot;);
+Helper::LoadScript(&quot;thirdparty/jquery.js&quot;);
+</code></pre>
+
+<h4 id="output_1">Output:</h4>
+<pre class="prettyprint well"><code class="html">&lt;script src=&quot;https://helgesverre.com/public/js/script.js&quot;&gt;&lt;/script&gt;;
+&lt;script src=&quot;https://helgesverre.com/public/js/thirdparty/jquery.js&quot;&gt;&lt;/script&gt;;
+</code></pre>
+
+<h2 id="helperanchor">Helper::Anchor()</h2>
+<h4 id="generates-an-anchor-tag">Generates an anchor tag.</h4>
+<p>The <code>anchor()</code> function is a convenience function to generate a anchor tag, 
+it has 5 parameters, 3 of which is optional.</p>
+<p>Parameters:</p>
+<ol>
+<li>$href (Required): The location in which the anchor tag will lead.</li>
+<li>$text (Required): The text to display inside the anchor tag.</li>
+<li>$class (Optional): give the anchor tag an optional class attribute</li>
+<li>$id (Optional): give the anchor tag an optional id attribute</li>
+<li>$rel (Optional): give the anchor tag an optional rel attribute</li>
+</ol>
+<h4 id="example_2">Example:</h4>
+<pre class="prettyprint well"><code class="php">Helper::Anchor(&quot;https://google.com&quot;, &quot;Look a google!&quot;);
+Helper::Anchor(&quot;https://helgesverre.com&quot;, &quot;Helge Sverre&quot;, &quot;btn&quot;, &quot;awesome-link&quot;, &quot;nofollow&quot;);
+</code></pre>
+
+<h4 id="output_2">Output:</h4>
+<pre class="prettyprint well"><code class="html">&lt;a href=&quot;https://google.com&quot;&gt;Look a google!&lt;/a&gt;
+&lt;a href=&quot;https://helgesverre.com&quot; class=&quot;btn&quot; id=&quot;awesome-link&quot; rel=&quot;nofollow&quot;&gt;Helge Sverre&lt;/a&gt;
+</code></pre>
+
+<h2 id="helperredirect">Helper::Redirect()</h2>
+<h4 id="simply-redirects-the-user-to-a-location">Simply redirects the user to a location</h4>
+<p>The redirect function will simply redirect a user via the <code>Header("Location: http://example.com")</code> function.</p>
+<h4 id="example_3">Example:</h4>
+<pre class="prettyprint well"><code class="php">Helper::Redirect(&quot;http://google.com&quot;);
+Helper::Redirect(&quot;about/me&quot;);
+</code></pre>
+
+<h2 id="helperloadstylesheet">Helper::LoadStylesheet()</h2>
+<h4 id="includes-a-css-stylesheet-file">Includes a CSS stylesheet file.</h4>
+<p>The <code>LoadStylesheet()</code> function takes 1 parameter, which is a filename to a file inside of the stylesheet directory of your application, by default this is inside of <strong>public/css/</strong>, but this can be changed in the <a href="../configuration">Configuration</a>.</p>
+<h4 id="example_4">Example:</h4>
+<pre class="prettyprint well"><code class="php">Helper::LoadStylesheet(&quot;style.css&quot;);
+Helper::LoadStylesheet(&quot;thirdparty/bootstrap.css&quot;);
+</code></pre>
+
+<h4 id="output_3">Output:</h4>
+<pre class="prettyprint well"><code class="html">&lt;link rel='stylesheet' href='https://helgesverre.com/public/css/style.css'&gt;&quot;;
+&lt;link rel='stylesheet' href='https://helgesverre.com/public/css/thirdparty/bootstrap.css'&gt;&quot;;
+</code></pre>
+
+<h2 id="helperloadpartial">Helper::LoadPartial()</h2>
+<p>Please see this page <a href="../views#partials">Views - Partials</a>.</p>
+<h2 id="helpertitle">Helper::Title()</h2>
+<h4 id="wraps-whatever-string-you-pass-to-it-inside-of-a-title-tag">Wraps whatever string you pass to it inside of a &lt;title&gt; tag</h4>
+<h4 id="example_5">Example:</h4>
+<pre class="prettyprint well"><code class="php">Helper::Title(&quot;This is my website&quot;);
+</code></pre>
+
+<h4 id="output_4">Output:</h4>
+<pre class="prettyprint well"><code class="html">&lt;title&gt;This is my website&lt;/title&gt;
+</code></pre>
+
+<h2 id="helperissecure">Helper::isSecure()</h2>
+<h4 id="returns-whether-or-not-the-website-is-running-under-https-or-not">Returns whether or not the website is running under HTTPS or not.</h4>
+<p>This function returns true if the website is running under HTTPS, false if it is not.</p>
+<h4 id="example_6">Example:</h4>
+<pre class="prettyprint well"><code class="php">if (Helper::isSecure()) {
+    echo &quot;Website has HTTPS&quot;;
+} else {
+    echo &quot;Website has not HTTPS&quot;;
+}
+</code></pre>
+
+<h4 id="outputin-my-case">Output(in my case):</h4>
+<pre class="prettyprint well"><code class="html">Website has HTTPS
+</code></pre>
+
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/prettify-1.0.min.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

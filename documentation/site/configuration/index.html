@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+        <title>Configuration - HelgeMVC</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">HelgeMVC</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../download">Download</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../misc">Misc</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href=".">Configuration</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../controllers">Controllers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../models">Models</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../views">Views</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../database">Database</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../forms">Forms</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../helpers">Helpers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../sessions">Sessions</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../misc">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../controllers">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#htaccess-file">.htaccess File</a></li>
+        
+            <li><a href="#database-configuration">Database Configuration</a></li>
+        
+            <li><a href="#system-path-configuration">System Path Configuration</a></li>
+        
+            <li><a href="#default-controller">Default Controller</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="configuration">Configuration</h1>
+<p>If you want to use HelgeMVC in your project, some configuration is required,
+but don't worry, it's very straight forward to configure HelgeMVC for your project.</p>
+<h2 id="htaccess-file">.htaccess File</h2>
+<p>The .htaccess file is the file that is responsible for rewriting the URL, there are only 
+one setting in that file you should need to modify, and that is the <code>RewriteBase</code> line.</p>
+<p>The <code>RewriteBase</code> setting specifies which (sub)directory your application is placed in, 
+if you place your HelgeMVC application in the <strong>http://website.com/my/app/</strong> directory on your 
+web server, you should change the RewriteBase to <strong>/my/app/</strong>, be sure to include the leading slash.</p>
+<p>For more details on how htaccess files work and how to configure them, take a look at 
+this article from <a href="https://code.tutsplus.com/tutorials/the-ultimate-guide-to-htaccess-files--net-4757">TutsPlus</a> that goes into more detail on the matter.</p>
+<pre class="prettyprint well"><code># Change this setting to whichever directory your app is placed in.
+RewriteBase /
+</code></pre>
+
+<h2 id="database-configuration">Database Configuration</h2>
+<p>I've opted to use and extend the functionality of <a href="https://php.net/manual/en/class.pdo.php">PDO class</a> in this MVC Framework, if you are 
+familiar with PDO, that is great, but it is not neccesary, you will find that the abstraction 
+functions that I have written will take care of any normal database operation you might want 
+to do on a regular basis.</p>
+<p>Since <strong>MySQL</strong> is the most popular database management system, 
+available on your typical shared host, it is the default database 
+that comes configured out of the box with HelgeMVC.</p>
+<p>If you are going to use another type of database management system, 
+please see the advanced Database configuration section.  </p>
+<h3 id="simple-database-configuration-mysql">Simple Database Configuration (MySQL)</h3>
+<p>To configure your hostname, username, password and database, 
+you need to edit these values in the <strong>Config.php</strong> file, this 
+file is inside of the <strong>libs/</strong> directory. </p>
+<h4 id="example">Example:</h4>
+<pre class="prettyprint well"><code class="php">/*
+ * DATABASE CONFIGURATION
+ */
+define('DB_HOST', 'localhost');     // the hostname/ip of your database server.
+define('DB_NAME', 'databasename');  // the database name you will be using.
+define('DB_USER', 'username');      // the username for your database.
+define('DB_PASS', 'password');      // the password for your database.
+define('DB_CHARSET', 'utf8');       // the charset, you should just leave this to the default value.
+
+</code></pre>
+
+<p>These constants are usedby the database class inside <strong>libs/database.php</strong>.</p>
+<p>Once you've changed these values to whatever is relevant for your environment, 
+you should be ready to go.</p>
+<p>Easy right? :)</p>
+<h3 id="advanced-database-configuration-sqlite">Advanced Database Configuration (SQLite)</h3>
+<p>If you want to SQLite(basically a database in a single file) within your 
+application, you will need to edit the data source name(DSN) variable that is 
+located inside constructor function in the <strong>libs/Database.php</strong> file.</p>
+<p>You will have to replace the <code>$dns</code> variable like this:</p>
+<pre class="prettyprint well"><code class="php">$dsn = &quot;sqlite:database.db&quot; // replace database.db with the PATH to your database file
+
+</code></pre>
+
+<p>If you are unfamiliar with how PDO works, please consult the 
+<a href="https://php.net/manual/en/class.pdo.php">PHP.net documentation on the PDO class</a>.</p>
+<p>The built-in <a href="../database">database abstraction functions</a> are officially only supported 
+on MySQL, althought they should also work on SQLite, although it has not 
+been tested nor is it officially supported.</p>
+<pre class="prettyprint well"><code class="php">class Database extends PDO {
+
+    public function __construct () {
+        // Replace the existing $dsn variable with this line:
+        $dsn = &quot;sqlite:database.db&quot;
+
+        // Initialize the PDO object that we're extending with our dsn string and database Constants
+        parent::__construct($dsn, DB_USER, DB_PASS);
+
+        // Make PDO return an associative array instead of the default.
+        $this-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    }
+
+</code></pre>
+
+<h2 id="system-path-configuration">System Path Configuration</h2>
+<p>To allow a certain level of flexibility and customizability within HelgeMVC, 
+I have made sure to use constants for defining where important system 
+directories are located, you may chose to change, rename or move these 
+around as you see fit, to do this, all you need to do is to change the 
+locations specified in the <strong>libs/Config.php</strong> file.</p>
+<p>Scroll down to the section called <em>SYSTEM PATH CONFIGURATION</em>:</p>
+<pre class="prettyprint well"><code class="php">/*
+ * SYSTEM PATH CONFIGURATION
+ */
+define('CONTROLLERS_PATH', 'controllers/');
+define('MODELS_PATH', 'models/');
+define('VIEWS_PATH', 'views/');
+define('PARTIALS_PATH', VIEWS_PATH . 'partials/');
+
+</code></pre>
+
+<p>The default configuration is as follows:</p>
+<ul>
+<li><a href="../controllers">controllers</a> are in the <strong>controllers/</strong></li>
+<li><a href="../models">models</a> are in <strong>models/</strong></li>
+<li><a href="../views">views</a> are in <strong>views/</strong></li>
+<li><a href="../views#partials">partials</a> are in in <strong>views/partials/</strong>.</li>
+</ul>
+<p>In my humble opinion this is the directory structure that makes the most 
+sense, so therefore it is like this by default, but again, you are totally 
+free to change this however you like.</p>
+<h2 id="default-controller">Default Controller</h2>
+<p>The default controller is the controller that is called when a user have not 
+specified which controller to use.</p>
+<p>This usually happens whenever someone 
+goes to your homepage (http://homepage.com/), by default, this route is 
+setup to point to the <strong>Home</strong> controller, this controller is located inside 
+the controller directory(default: <strong>controllers/</strong>) and is called <strong>Home.php</strong>.</p>
+<p>You can think of this controller as a website's "index.html" file.</p>
+<p>To change the default controller you can edit the following line in <strong>libs/Config.php</strong>:</p>
+<pre class="prettyprint well"><code class="php">/*
+ * DEFAULT CONTROLLER CONFIGURATION
+ */
+define(&quot;DEFAULT_CONTROLLER&quot;, &quot;Home&quot;);
+</code></pre>
+
+<p>The controller name is the same as the filename <strong>without</strong> the trailing ".php" extension.</p>
+<h3 id="want-more-features">Want more features?</h3>
+<p>Send me an <a href="mailto:email@helgesverre.com">email</a> with your request, or submit a 
+ feature request on <a href="https://github.com/HelgeSverre/HelgeMVC/issues/new">GitHub</a>.</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/prettify-1.0.min.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

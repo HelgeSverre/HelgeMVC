@@ -1,0 +1,15 @@
+site_name: HelgeMVC
+theme: yeti
+pages:
+- [index.md, Home]
+- [download.md, Download]
+- [misc.md, Misc]
+- [configuration.md, Configuration]
+- [controllers.md, Controllers]
+- [models.md, Models]
+- [views.md, Views]
+- [database.md, Database]
+- [forms.md, Forms]
+- [helpers.md, Helpers]
+- [sessions.md, Sessions]
+

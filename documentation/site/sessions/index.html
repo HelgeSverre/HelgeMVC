@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+        <title>Sessions - HelgeMVC</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">HelgeMVC</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../download">Download</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../misc">Misc</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../configuration">Configuration</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../controllers">Controllers</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../models">Models</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../views">Views</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../database">Database</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../forms">Forms</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../helpers">Helpers</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href=".">Sessions</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../helpers">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="prev" >
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#sessions">Sessions</a></li>
+        
+            <li><a href="#technical-information">Technical Information</a></li>
+        
+            <li><a href="#setting-a-session-variable">Setting a session variable</a></li>
+        
+            <li><a href="#getting-a-session-variable">Getting a session variable</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="sessions">Sessions</h1>
+<p>Sessions are an important part of any web application that deals with authentication, HelgeMVC does not have any extensive session wrapper classes other than simply setting and getting a session key.</p>
+<h2 id="technical-information">Technical Information</h2>
+<p>In HelgeMVC, a session object is set in the base controller's constructor, therefore sessions are available everywhere in your application, you do not need to initialize the session class yourself.</p>
+<h2 id="setting-a-session-variable">Setting a session variable</h2>
+<p>You can very easily set a session variable by using the static function <code>set()</code>  within the Session class as follows:</p>
+<pre class="prettyprint well"><code class="php">
+// Parameter 1 (Required): the name of the session key to set.
+// Parameter 2 (Required): the value to give the session key
+Session::set(&quot;loggedin&quot;, 1);
+</code></pre>
+
+<p>This would be the equivilant of doing this in plain php:</p>
+<pre class="prettyprint well"><code class="php">$_SESSION[&quot;loggedin&quot;] = 1;
+</code></pre>
+
+<h2 id="getting-a-session-variable">Getting a session variable</h2>
+<p>To get a session variable, you simply call the static function <code>get()</code> within the Session class like this:</p>
+<pre class="prettyprint well"><code class="php">// Parameter 1 (Required): the name of the session key to get.
+$isLoggedIn = Session::set(&quot;loggedin&quot;);
+
+if (isLoggedIn) {
+    echo &quot;Welcome&quot;;
+} else {
+    die(&quot;Get out of my lawn!&quot;);
+}
+</code></pre>
+
+<p>In essence, all this does is this:</p>
+<pre class="prettyprint well"><code class="php">return $_SESSION[&quot;isLoggedIn&quot;];
+</code></pre>
+
+<p>Pretty basic and straight foreward, you may choose if you want to use these functions or to use native PHP session in your application. </p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/prettify-1.0.min.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
