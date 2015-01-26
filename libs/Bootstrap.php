@@ -19,6 +19,12 @@ class Bootstrap {
             // Instantiate a new controller object.
             $controller = new Home();
 
+
+            // If the __remap function exists, always call it.
+            if (method_exists($controller, "__remap")) {
+                $controller->__remap();
+            }
+
             // Load the Index function in the controller by default.
             $controller->Index();
 
@@ -72,6 +78,11 @@ class Bootstrap {
                         $this->Error("The function: <b>" . $url[1] . "()</b> does not exist in controller: <b>" . $file . "</b>");
                     }
                 } else {
+                    // If the __remap function exists, always call it.
+                    if (method_exists($controller, "__remap")) {
+                        $controller->__remap();
+                    }
+
                     // if there is no function specified, load the Index() function.
                     $controller->Index();
                 }
