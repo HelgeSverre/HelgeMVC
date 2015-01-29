@@ -1,0 +1,108 @@
+/*
+    Author: Helge Sverre <email@helgesverre.com>
+    Description: This stylesheet contains default styles for the default and error controller.
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+    font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 620px;
+
+}
+
+.container {
+    border: 1px solid #cecece;
+    border-radius: 10px;
+}
+
+header {
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 52px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 28px;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+}
+
+
+section {
+    padding: 20px;
+}
+
+section h3 {
+    font-size: 42px;
+    font-weight: 300;
+    margin: 20px 0 ;
+}
+
+section h4 {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 20px 0;
+    border-bottom: 1px solid #cecece;
+}
+
+section p {
+    margin: 25px 0;
+    padding: 0;
+    line-height: 20px;
+}
+
+.highlight {
+    display: block;
+    background-color: #efefef;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dotted #888;
+}
+
+.highlight-error {
+    display: block;
+    background-color: #F5A9A9;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dotted #ff0000;
+}
+
+.highlight-success {
+    display: block;
+    background-color: #c7f59b;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dotted #3eff2f;
+}
+
+.error {
+    color: red;
+}
+
+a:active,
+s:visited,
+a {
+    color: #4183c4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+}
