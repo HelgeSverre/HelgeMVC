@@ -45,7 +45,7 @@ class Home extends Controller {
 
         // load the class "Users_model" inside the "Users_model.php" file
         // that is in the models directory, you don't need to include _model
-        $this->loadModel("users");
+        $users = $this->loadModel("users");
 
         // lets use the model to fetch some posts and assign it to $posts
         $posts = $this->model->getUsers();

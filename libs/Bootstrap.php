@@ -1,7 +1,5 @@
 <?php
 
-// TODO: Better error handling.
-
 /**
  * Class Bootstrap
  * responsible for calling the controllers based on the url string entered

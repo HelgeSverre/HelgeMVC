@@ -16,7 +16,7 @@
 
     <div class="container">
         <section>
-            <h3>Hooray, It works!</h3>
+            <h3><?= $hello ?></h3>
 
             <p>
                 This is the default view for <b>HelgeMVC</b>.<br/>You can find this file in the directory:

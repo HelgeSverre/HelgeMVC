@@ -1,5 +1,6 @@
 <?php
 
+
 class Controller {
 
     function __construct() {
@@ -8,6 +9,10 @@ class Controller {
     }
 
 
+    /**
+     * Load a model
+     * @param string $name the name of the model without the _Model suffix.
+     */
     public function loadModel ($name) {
 
         $path = MODELS_PATH . $name . "_Model.php";

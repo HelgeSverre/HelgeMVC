@@ -1,5 +1,6 @@
 <?php
 
+
 class Database extends PDO {
 
     // TODO: Add "native" support for SQLite.

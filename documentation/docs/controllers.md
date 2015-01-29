@@ -14,7 +14,7 @@ class called, you guessed it: **About**.
 This happens automatically within HelgeMVC and requires nothing more than
 for you to create a controller class with whatever name you want the page to be named.
 
-### Actions/Functions
+## Actions/Functions
 Within your controller class, you've got functions, which sometimes are called "actions",
 although HelgeMVC have no official name for them other than "a controller function".
 
@@ -53,6 +53,32 @@ class Hello extends Controller {
         // echo out a welcome message.
         echo "Welcome to my website!";
     }
+}
+```
+
+
+## Re-routing function calls in controllers
+
+If you wish to re-route or remap all function calls in a controller to a single function in the controller you can use the ```__remap()``` function.
+
+
+This is useful if you want to create for instance a blog with Url's like this: www.website.com/post/a-blog-post-here
+routing all requests to the blog controller into the ```__remap()```  function, then determining if it is a valid blog post, if it is, it will display it.
+
+
+Here is a simple example of remapping the actions in the default Home controller to ```__remap()```.
+
+```php
+class Home extends Controller {
+
+    public function Index() {
+        $this->view->render("home.index");
+    }
+
+    public function __remap() {
+    	die("This will always run instead of Index()");
+    }
+
 }
 ```
 

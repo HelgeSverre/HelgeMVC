@@ -1,7 +1,5 @@
 <?php
 
-
-
 // TODO: add option to use array instead of multiple params
 // TODO: add file input function
 
