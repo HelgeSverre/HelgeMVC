@@ -1,9 +1,11 @@
 <?php
 
-class Home_Model extends Model {
+class Home_Model extends Model
+{
 
-    public function getHello() {
-        return "Hello World";
+    public function getName()
+    {
+        return "HelgeMVC - A Simple MVC Framework";
     }
 
 }
