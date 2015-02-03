@@ -1,18 +1,23 @@
 <?php
 
 
-class View {
+class View
+{
 
+    /**
+     * @var array an associative array of the data values that will be available within the view
+     */
     private $data = array();
 
 
     /**
      * @param string $name example: "about.index" will load the index.php file inside the about directory
      */
-    public function render($name, $data = null) {
+    public function render($name, $data = null)
+    {
 
         // translate fancy dot seperators to slashes so it can be used for file paths.
-        $name = str_replace(".","/",$name);
+        $name = str_replace(".", "/", $name);
 
         // build the filepath
         $filepath = VIEWS_PATH . $name . ".php";
@@ -37,7 +42,8 @@ class View {
      * @param string $key the data to retrieve
      * @return mixed the data
      */
-    public function getData($key) {
+    public function getData($key)
+    {
         return $this->data[$key];
     }
 
@@ -47,7 +53,8 @@ class View {
      * @param string $key the key to store the value as
      * @param string $value the value to be stored.
      */
-    public function setData($key, $value) {
+    public function setData($key, $value)
+    {
         $this->data[$key] = $value;
     }
 

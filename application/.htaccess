@@ -16,5 +16,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # Don't rewrite the url if the requested url us a link (shortcut)
 RewriteCond %{REQUEST_FILENAME} !-l
 
-#Rewrite the url.
+# Rewrite the url.
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

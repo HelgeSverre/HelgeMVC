@@ -1,9 +1,15 @@
 <?php
 
-class Model {
+/**
+ * Class Model
+ */
+class Model
+{
 
-    public function __construct() {
-        $this->Db = new Database();
+    public function __construct($loadDB = false)
+    {
+        if ($loadDB) {
+            $this->Db = new Database();
+        }
     }
-
 } 

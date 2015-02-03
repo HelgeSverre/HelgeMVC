@@ -1,23 +1,21 @@
 <?php
 
-
-// TODO: Implement cryptography function
-
-
-
 /**
- * Helper class used for various tasks like generating anchor links and redirecting the user to a different page.
+ * Class Helper
+ * Responsible for various util tasks like generating anchor links and redirecting the user to a different page.
  */
-class Helper {
+class Helper
+{
 
     /**
      * @return string the base url to the application.
      */
-    public static function URL() {
+    public static function URL()
+    {
 
         $protocol = self::isSecure() ? 'https://' : 'http://';
 
-        return $protocol . $_SERVER['HTTP_HOST'] . '/';
+        return $protocol . $_SERVER['HTTP_HOST'] . '/' . BASE_PATH;
     }
 
 
@@ -25,7 +23,8 @@ class Helper {
      * Redirects the user by using the header() function.
      * @param string $url url to redirect to
      */
-    public static function Redirect($url) {
+    public static function Redirect($url)
+    {
         header("Location: {$url}");
     }
 
@@ -34,7 +33,8 @@ class Helper {
      * Will include a partial view file into the application, useful for widgets and forms.
      * @param string $name name of the partial view to load and display.
      */
-    public static function LoadPartial($name) {
+    public static function LoadPartial($name)
+    {
 
         $name = str_replace(".", "/", $name);
         $filepath = PARTIALS_PATH . $name . ".php";
@@ -42,7 +42,7 @@ class Helper {
         if (file_exists($filepath)) {
             include $filepath;
         } else {
-            Bootstrap::Error("The partial file <b>". $filepath . "</b> does not exist." );
+            throw new Exception("The partial file " . $filepath . " does not exist.");
         }
     }
 
@@ -55,17 +55,18 @@ class Helper {
      * @param string $rel optional rel attribute for the anchor link
      * @return string the complete anchor tag
      */
-    public static function Anchor($href, $text, $class = "", $id = "", $rel = "") {
+    public static function Anchor($href, $text, $class = "", $id = "", $rel = "")
+    {
 
         $anchor = "<a href='" . $href . "'";
 
-        if(!empty($class))
+        if (!empty($class))
             $anchor .= " class='" . $class . "'";
 
-        if(!empty($id))
+        if (!empty($id))
             $anchor .= " id='" . $id . "'";
 
-        if(!empty($rel))
+        if (!empty($rel))
             $anchor .= " rel='" . $rel . "'";
 
         $anchor .= ">" . $text . "</a>";
@@ -78,7 +79,8 @@ class Helper {
      * Helper class for creating a <link rel="stylesheet"> tag
      * @param string $href path to the css file inside public/css/
      */
-    public static function LoadStylesheet($path) {
+    public static function LoadStylesheet($path)
+    {
         echo "<link rel='stylesheet' href='" . self::URL() . STYLESHEETS_PATH . $path . "'>";
     }
 
@@ -87,8 +89,9 @@ class Helper {
      * Helper class for creating a <link rel="stylesheet"> tag
      * @param string $href path to the css file inside public/css/
      */
-    public static function LoadScript($path) {
-        echo "<script src='" . self::URL() .  SCRIPTS_PATH . $path . "'></script>";
+    public static function LoadScript($path)
+    {
+        echo "<script src='" . self::URL() . SCRIPTS_PATH . $path . "'></script>";
     }
 
 
@@ -96,7 +99,8 @@ class Helper {
      * checks if the server is running under HTTPS.
      * @return bool https is enabled.
      */
-    public static function isSecure() {
+    public static function isSecure()
+    {
         return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443 ? true : false;
     }
 
@@ -104,7 +108,8 @@ class Helper {
     /**
      * @param string $text the text you want inside the title tags
      */
-    public static function Title($text) {
+    public static function Title($text)
+    {
         echo '<title>' . $text . '</title>';
     }
 

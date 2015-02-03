@@ -4,15 +4,16 @@
  * DATABASE CONFIGURATION
  */
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'mvctest');
+define('DB_NAME', 'mydatabase');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'PassW@rd');
 define('DB_CHARSET', 'utf8');
 
 
 /*
  * SYSTEM PATH CONFIGURATION
  */
+define('BASE_PATH', 'mvcframeworktest/'); // If your application is within a subfolder, specify it here.
 define('CONTROLLERS_PATH', 'controllers/');
 define('MODELS_PATH', 'models/');
 define('VIEWS_PATH', 'views/');

@@ -1,9 +1,12 @@
 <?php
 
 
+/**
+ * Class Database
+ * Responsible for handling database interaction and abstraction.
+ */
 class Database extends PDO {
 
-    // TODO: Add "native" support for SQLite.
     public function __construct () {
         // Build the data source name string.
         $dsn = "mysql:host=" . DB_HOST
@@ -13,7 +16,7 @@ class Database extends PDO {
         // Initialize the PDO object that we're extending with our dsn string and database Constants
         parent::__construct($dsn, DB_USER, DB_PASS);
 
-        // Make PDO return an associative array instead of the default.
+        // Make PDO return associative arrays by default.
         $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 
@@ -67,7 +70,7 @@ class Database extends PDO {
     public function Insert($table, $data) {
 
         // adds quotes to the value fields, this is an sql thing,
-        // needs refactoring later, it works fornow
+        // needs refactoring later, it works for now
         $rawvalues = array_values($data);
 
         foreach ($rawvalues as &$value) {

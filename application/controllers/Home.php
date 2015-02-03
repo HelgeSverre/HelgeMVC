@@ -1,14 +1,16 @@
 <?php
 
-class Home extends Controller {
+class Home extends Controller
+{
 
-    public function Index() {
+    public function Index()
+    {
+        $this->loadModel("home");
+        $name = $this->home->getName();
 
-        $this->loadModel("Home");
-
-        $hello = $this->model->getHello();
-
-        $this->view->render("home.index", array("hello" => $hello));
+        $this->view->render("home.index", array(
+            "product_name" => $name
+        ));
     }
 
 }

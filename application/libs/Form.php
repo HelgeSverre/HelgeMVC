@@ -4,9 +4,16 @@
 // TODO: add file input function
 
 
+/**
+ * Class Form
+ * Responsibel for building the html for forms.
+ */
+class Form
+{
 
-class Form {
-
+    /**
+     * @var string the HTML for the generated form
+     */
     private $form;
 
 
@@ -16,7 +23,8 @@ class Form {
      * @param string $id optional, adds an ID attribute to the form tag
      * @param string $class optional, adds a CLASS attribute to the form tag
      */
-    public function __construct($action, $method, $id = null, $class = null) {
+    public function __construct($action, $method, $id = null, $class = null)
+    {
 
         $tmp = "\n<form";
 
@@ -44,7 +52,8 @@ class Form {
      * @param string $id optional, adds an ID attribute to the label tag.
      * @param string $class optional, adds a CLASS attribute to the label tag.
      */
-    public function addLabel($text, $for = null, $id = null, $class = null) {
+    public function addLabel($text, $for = null, $id = null, $class = null)
+    {
 
         $tmp = "\n\t<label";
 
@@ -71,7 +80,8 @@ class Form {
      * @param string $id the id attribute for the input field
      * @param string $class the class attribute for the input field
      */
-    public function addInput($type, $name, $placeholder = null, $value = null,  $id = null, $class = null) {
+    public function addInput($type, $name, $placeholder = null, $value = null, $id = null, $class = null)
+    {
 
         $tmp = "\n\t<input";
 
@@ -105,15 +115,17 @@ class Form {
      * @param string $id optional, give the input tag an ID
      * @param string $class optional, give the input tag a CLASS
      */
-    public function addSubmit($name = null, $value = null,  $id = null, $class = null) {
-        $this->addInput("submit", $name, $placeholder = null, $value = $value,  $id, $class);
+    public function addSubmit($name = null, $value = null, $id = null, $class = null)
+    {
+        $this->addInput("submit", $name, $placeholder = null, $value = $value, $id, $class);
     }
 
 
     /**
      * Convenience function to insert line break.
      */
-    public function addBr() {
+    public function addBr()
+    {
         $this->form .= "\n<br />";
     }
 
@@ -121,7 +133,8 @@ class Form {
     /**
      * @return string displays the form, call this when you've added all your inputs.
      */
-    public function display() {
+    public function display()
+    {
         $this->form .= "\n</form>\n";
         return $this->form;
     }

@@ -11,7 +11,7 @@ html, body {
 }
 
 .wrap {
-    margin: 0 auto;
+    margin: 50px auto auto auto;
     width: 620px;
 
 }
@@ -22,24 +22,17 @@ html, body {
 }
 
 header {
-    margin: 50px auto;
+    margin: 25px auto;
     padding: 0 20px;
 }
 
-header h1 {
-    font-size: 52px;
-    font-weight: 400;
-    padding: 0;
-    margin: 0;
-}
 
-header h2 {
+header h1 {
     font-size: 28px;
     font-weight: 300;
     padding: 0;
     margin: 0;
 }
-
 
 section {
     padding: 20px;
@@ -48,7 +41,7 @@ section {
 section h3 {
     font-size: 42px;
     font-weight: 300;
-    margin: 20px 0 ;
+    margin: 20px 0;
 }
 
 section h4 {
