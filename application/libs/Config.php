@@ -13,7 +13,7 @@ define('DB_CHARSET', 'utf8');
 /*
  * SYSTEM PATH CONFIGURATION
  */
-define('BASE_PATH', 'mvcframeworktest/'); // If your application is within a subfolder, specify it here.
+define('BASE_PATH', ''); // If your application is within a subfolder, specify it here.
 define('CONTROLLERS_PATH', 'controllers/');
 define('MODELS_PATH', 'models/');
 define('VIEWS_PATH', 'views/');
