@@ -1,17 +1,17 @@
 <?php
 
-// TODO: Autoload classes in libs directory
-require 'libs/Config.php';
-require 'libs/Bootstrap.php';
-require 'libs/Database.php';
-require 'libs/Helper.php';
-require 'libs/Session.php';
-require 'libs/Form.php';
-require 'libs/Flash.php';
+// TODO: Autoload classes in core directory
+require './core/Config.php';
+require './core/Bootstrap.php';
+require './core/Database.php';
+require './core/Helper.php';
+require './core/Session.php';
+require './core/Form.php';
+require './core/Flash.php';
 
-require 'libs/Controller.php';
-require 'libs/Model.php';
-require 'libs/View.php';
+require './core/Controller.php';
+require './core/Model.php';
+require './core/View.php';
 
 // initialize the application
 $app = new Bootstrap();

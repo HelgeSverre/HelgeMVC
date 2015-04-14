@@ -34,5 +34,4 @@ class Flash {
         return $tmp;
     }
 
-
 }
