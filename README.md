@@ -1,5 +1,7 @@
 # HelgeMVC Framework
 
+**Don't use this, it is not secure and it uses old practices that are outdated today.**
+
 ## Download and Manual
 
 * Download: [https://helgesverre.com/mvcframework/download/](https://helgesverre.com/mvcframework/download/)
